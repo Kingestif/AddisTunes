@@ -1,10 +1,18 @@
 const Song = require('../models/songs');
 exports.getAllSongs = async (req, res) => {
   try {
-    const songs = await Song.find();
+    const page = parseInt(req.query.page) || 1;   // default page 1
+    const limit = parseInt(req.query.limit) || 10; // default 10 items per page
+    const skip = (page - 1) * limit;
+
+    const songs = await Song.find().skip(skip).limit(limit);
+    const total = await Song.countDocuments();
+
     res.status(200).json({
       status: "success",
+      page,
       results: songs.length,
+      total,
       data: {
         songs,
       },
