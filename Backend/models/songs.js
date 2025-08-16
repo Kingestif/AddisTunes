@@ -15,7 +15,7 @@ const songSchema = new mongoose.Schema(
     album: { type: String, trim: true },
     year: { type: Number, min: 1900, max: new Date().getFullYear() },
     genre: { type: String, trim: true },
-    duration: { type: Number, min: 0 }, 
+    duration: { type: String, trim: true }, 
   },
 
   { timestamps: true }
