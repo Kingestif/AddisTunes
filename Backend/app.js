@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const songRouter = require('./routes/songRoutes');
 
+app.use(express.json());
 app.use(cors());
 app.use(morgan('dev')); 
 
