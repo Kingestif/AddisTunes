@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export function Footer(){
     return (
-        <footer>
+        <footer className="footer">
             <p>© 2025 Zemenay. All rights reserved.</p>
         </footer>
     );
