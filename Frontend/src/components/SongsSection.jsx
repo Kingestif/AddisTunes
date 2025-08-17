@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSongs, addSong, updateSong, deleteSong } from "../redux/songsSlice";
 import SongList from "./SongList";
 import EditSongModal from "./EditSongModal";
+import DeleteConfirmModal from "./DeleteConfirmModal";
+
 
 export const SongsSection = () => {
   const [editingSong, setEditingSong] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.songs);
 
@@ -28,10 +31,17 @@ export const SongsSection = () => {
     setEditingSong(null);
   };
 
-  const handleDelete = (_id) => {
-    if (window.confirm("Are you sure you want to delete this song?")) {
-      dispatch(deleteSong(_id));
-    }
+    const handleDelete = (_id) => {
+    setDeleteId(_id);
+  };
+
+  const confirmDelete = () => {
+    dispatch(deleteSong(deleteId));
+    setDeleteId(null);
+  };
+
+  const cancelDelete = () => {
+    setDeleteId(null);
   };
 
   return (
@@ -51,6 +61,11 @@ export const SongsSection = () => {
             onSave={handleSaveEdit}
           />
         )}
+        <DeleteConfirmModal
+          open={!!deleteId}
+          onConfirm={confirmDelete}
+          onCancel={cancelDelete}
+        />
       </div>
     </section>
   );
