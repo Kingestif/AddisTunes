@@ -1,18 +1,16 @@
 import React from "react";
 
 const SongList = ({ songs, onEdit, onDelete }) => (
-  <ul>
-    {songs && songs.length > 0 ? (
-      songs.map((song) => (
-        <li key={song._id}>
-          {song.title}
+  <ul className="song-list">
+    {songs.map((song) => (
+      <li key={song._id} className="song-item">
+        <span className="song-title">{song.title}</span>
+        <div className="song-actions">
           <button onClick={() => onEdit(song)}>Edit</button>
           <button onClick={() => onDelete(song._id)}>Delete</button>
-        </li>
-      ))
-    ) : (
-      <li>No songs found.</li>
-    )}
+        </div>
+      </li>
+    ))}
   </ul>
 );
 
