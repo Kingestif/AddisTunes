@@ -1,0 +1,87 @@
+.songs-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  padding: 48px 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(60, 72, 88, 0.12);
+  padding: 40px 32px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.add-btn {
+  display: block;
+  margin: 0 auto 32px auto;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #6366f1 0%, #f59e42 100%);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.add-btn:hover {
+  background: linear-gradient(90deg, #4f46e5 0%, #f59e42 100%);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.25);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6366f1;
+  margin-top: 32px;
+}
+
+/* SongList styles (if not in SongList.css) */
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.song-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(60, 72, 88, 0.08);
+}
+.song-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #374151;
+}
+.song-actions {
+  display: flex;
+  gap: 12px;
+}
+.song-actions button {
+  padding: 8px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.song-actions button:hover {
+  background: #4f46e5;
+}
