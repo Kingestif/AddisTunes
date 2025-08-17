@@ -4,6 +4,9 @@ import {
   fetchSongs, addSong, updateSong, deleteSong 
 } from "./redux/songsSlice";
 import SongList from "./components/SongList";
+import { Header } from "./components/Header";
+import { HeroSection } from "./components/HeroSection";
+import { Footer } from "./components/Footer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,7 +37,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Songs</h1>
+      <Header/>
+      <HeroSection/>
+      {/* <h1>Songs</h1>
       <button onClick={handleAdd}>Add Song</button>
       {loading ? (
         <p>Loading...</p>
@@ -44,7 +49,8 @@ const App = () => {
           onEdit={handleUpdate} 
           onDelete={handleDelete} 
         />
-      )}
+      )} */}
+      <Footer/>
     </div>
   );
 };

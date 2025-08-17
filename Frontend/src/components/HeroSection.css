@@ -1,0 +1,95 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:100vh;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: #000;
+  color: #fff;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h2 {
+  font-size: 6rem;
+  font-weight: lighter;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #9333ea, #f97316);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.learn-more {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.learn-more:hover {
+  color: #fff;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circle1 {
+  top: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  background: #9333ea;
+}
+
+.circle2 {
+  bottom: -20px;
+  right: -20px;
+  width: 50px;
+  height: 50px;
+  background: #a855f7;
+}

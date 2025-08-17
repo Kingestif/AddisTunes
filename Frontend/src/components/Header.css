@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #000;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #a855f7;
+}
+
+.start-btn {
+  background: linear-gradient(to right, #9333ea, #f97316);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.start-btn:hover {
+  opacity: 0.9;
+}
