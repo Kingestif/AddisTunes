@@ -16,14 +16,18 @@ const songsSlice = createSlice({
     addSong: (state) => { state.loading = true; },
     addSongSuccess: (state, action) => { state.items.push(action.payload); state.loading = false; },
 
-    updateSong: (state) => { state.loading = true; },
+    updateSong: (state) => { 
+      // state.loading = true; 
+    },
     updateSongSuccess: (state, action) => {
       const index = state.items.findIndex(s => s._id === action.payload._id);
       if (index !== -1) state.items[index] = action.payload;
       state.loading = false;
     },
 
-    deleteSong: (state) => { state.loading = true; },
+    deleteSong: (state) => { 
+      // state.loading = true; 
+    },
     deleteSongSuccess: (state, action) => {
       state.items = state.items.filter(s => s._id !== action.payload);
       state.loading = false;
