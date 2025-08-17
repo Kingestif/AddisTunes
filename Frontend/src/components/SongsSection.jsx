@@ -5,11 +5,12 @@ import { fetchSongs, addSong, updateSong, deleteSong } from "../redux/songsSlice
 import SongList from "./SongList";
 import EditSongModal from "./EditSongModal";
 import DeleteConfirmModal from "./DeleteConfirmModal";
-
+import AddSongModal from "./AddSongModal";
 
 export const SongsSection = () => {
   const [editingSong, setEditingSong] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
+  const [addModalOpen, setAddModalOpen] = useState(false);
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.songs);
 
@@ -18,9 +19,14 @@ export const SongsSection = () => {
   }, [dispatch]);
 
   const handleAdd = () => {
-    const title = prompt("Enter song title:");
-    if (title) dispatch(addSong({ title }));
+    setAddModalOpen(true);
   };
+
+  const handleSaveAdd = (newSong) => {
+    dispatch(addSong(newSong));
+    setAddModalOpen(false);
+  };
+
 
   const handleUpdate = (song) => {
     setEditingSong(song);
@@ -61,10 +67,17 @@ export const SongsSection = () => {
             onSave={handleSaveEdit}
           />
         )}
+        
         <DeleteConfirmModal
           open={!!deleteId}
           onConfirm={confirmDelete}
           onCancel={cancelDelete}
+        />
+
+        <AddSongModal
+          open={addModalOpen}
+          onClose={() => setAddModalOpen(false)}
+          onSave={handleSaveAdd}
         />
       </div>
     </section>
