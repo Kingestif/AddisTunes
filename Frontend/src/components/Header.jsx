@@ -7,7 +7,7 @@ export function Header() {
       <h1 className="logo">AddisTunes</h1>
 
       <nav className="nav">
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <a href="#">Discover</a>
         <a href="#">About</a>
       </nav>
