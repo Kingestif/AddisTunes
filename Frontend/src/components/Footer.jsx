@@ -4,7 +4,7 @@ import "./Footer.css";
 export function Footer(){
     return (
         <footer>
-            <p>© 2023 Zemenay. All rights reserved.</p>
+            <p>© 2025 Zemenay. All rights reserved.</p>
         </footer>
     );
 }

@@ -11,8 +11,7 @@ export function HeroSection() {
           Listen and <br /> Stream <br /> Everywhere
         </h2>
         <p className="hero-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At possimus
-          assumenda debitis modi, in ipsa reiciendis, nemo perspiciatis corporis.
+          Discover your favorite music anytime, anywhere with Addis Tunes. Stream seamlessly, create playlists, and let the rhythm move you.
         </p>
 
         <div className="hero-actions">
