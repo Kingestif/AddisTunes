@@ -1,10 +1,12 @@
 import "./SongsSection.css";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSongs, addSong, updateSong, deleteSong } from "../redux/songsSlice";
 import SongList from "./SongList";
+import EditSongModal from "./EditSongModal";
 
 export const SongsSection = () => {
+  const [editingSong, setEditingSong] = useState(null);
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.songs);
 
@@ -18,8 +20,12 @@ export const SongsSection = () => {
   };
 
   const handleUpdate = (song) => {
-    const newTitle = prompt("Edit song title:", song.title);
-    if (newTitle) dispatch(updateSong({ id: song._id, data: { ...song, title: newTitle } }));
+    setEditingSong(song);
+  };
+
+  const handleSaveEdit = (updatedSong) => {
+    dispatch(updateSong({ id: updatedSong._id, data: updatedSong }));
+    setEditingSong(null);
   };
 
   const handleDelete = (_id) => {
@@ -37,6 +43,13 @@ export const SongsSection = () => {
           <p className="loading">Loading...</p>
         ) : (
           <SongList className="song-list" songs={items} onEdit={handleUpdate} onDelete={handleDelete} />
+        )}
+        {editingSong && (
+          <EditSongModal
+            song={editingSong}
+            onClose={() => setEditingSong(null)}
+            onSave={handleSaveEdit}
+          />
         )}
       </div>
     </section>
