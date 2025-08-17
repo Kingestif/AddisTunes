@@ -6,17 +6,28 @@ import SongList from "./SongList";
 import EditSongModal from "./EditSongModal";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import AddSongModal from "./AddSongModal";
+import "./Pagination.css";
 
 export const SongsSection = () => {
   const [editingSong, setEditingSong] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [page, setPage] = useState(1);
+  const limit = 10;
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.songs);
 
   useEffect(() => {
-    dispatch(fetchSongs());
-  }, [dispatch]);
+    dispatch(fetchSongs({ page, limit }));
+  }, [dispatch, page]);
+
+  const handleNextPage = () => {
+    setPage((prev) => prev + 1);
+  };
+
+  const handlePrevPage = () => {
+    setPage((prev) => Math.max(1, prev - 1));
+  };
 
   const handleAdd = () => {
     setAddModalOpen(true);
@@ -79,6 +90,12 @@ export const SongsSection = () => {
           onClose={() => setAddModalOpen(false)}
           onSave={handleSaveAdd}
         />
+
+        <div className="pagination">
+          <button className="btn-pagination" onClick={handlePrevPage} disabled={page === 1}>Prev</button>
+          <span className="page-number">Page {page}</span>
+          <button className="btn-pagination" onClick={handleNextPage}>Next</button>
+        </div>
       </div>
     </section>
   );

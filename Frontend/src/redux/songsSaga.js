@@ -10,9 +10,10 @@ import {
 const API = process.env.API_BASE_URL;
 
 // FETCH
-function* fetchSongsSaga() {
+function* fetchSongsSaga(action) {
+  const { page = 1, limit = 10 } = action.payload || {};
   try {
-    const res = yield call(axios.get, `${API}/?page=${2}&limit=${10}`);
+    const res = yield call(axios.get, `${API}/?page=${page}&limit=${limit}`);
     yield put(fetchSongsSuccess(res.data.data.songs));
   } catch (error) {
     yield put(fetchSongsFailure(error.message));
