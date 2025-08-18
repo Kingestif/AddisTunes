@@ -1,4 +1,7 @@
 # AddisTunes
+![alt text](Frontend/public/assets/Addis1.png)
+![alt text](Frontend/public/assets/Addis2.png)
+![alt text](Frontend/public/assets/Addis3.png)
 
 A full-stack music management application built with React, Node.js & Express. Easily manage songs with RESTful APIs.
 
@@ -209,11 +212,6 @@ Frontend/
    Output will be in the `dist/` directory.
 
 ---
-
-## Prototypes
-![alt text](Frontend/public/assets/Addis1.png)
-![alt text](Frontend/public/assets/Addis2.png)
-![alt text](Frontend/public/assets/Addis3.png)
 
 ## Contributing
 
